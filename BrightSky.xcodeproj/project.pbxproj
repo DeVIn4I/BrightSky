@@ -9,23 +9,32 @@
 /* Begin PBXBuildFile section */
 		86535AF82B35960800DD1D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AF72B35960800DD1D4F /* AppDelegate.swift */; };
 		86535AFA2B35960800DD1D4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AF92B35960800DD1D4F /* SceneDelegate.swift */; };
-		86535AFC2B35960800DD1D4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AFB2B35960800DD1D4F /* ViewController.swift */; };
-		86535AFF2B35960800DD1D4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86535AFD2B35960800DD1D4F /* Main.storyboard */; };
+		86535AFC2B35960800DD1D4F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AFB2B35960800DD1D4F /* WeatherViewController.swift */; };
 		86535B022B35960800DD1D4F /* BrightSky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86535B002B35960800DD1D4F /* BrightSky.xcdatamodeld */; };
 		86535B042B35960900DD1D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86535B032B35960900DD1D4F /* Assets.xcassets */; };
 		86535B072B35960900DD1D4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86535B052B35960900DD1D4F /* LaunchScreen.storyboard */; };
+		86535B162B35A67200DD1D4F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B152B35A67200DD1D4F /* LocationManager.swift */; };
+		86535B182B35A68400DD1D4F /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B172B35A68400DD1D4F /* IAPManager.swift */; };
+		86535B1A2B35A69D00DD1D4F /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B192B35A69D00DD1D4F /* WeatherManager.swift */; };
+		86535B1C2B35A87700DD1D4F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B1B2B35A87700DD1D4F /* SettingsViewController.swift */; };
+		86535B1E2B35A8A700DD1D4F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B1D2B35A8A700DD1D4F /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		86535AF42B35960800DD1D4F /* BrightSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrightSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86535AF72B35960800DD1D4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86535AF92B35960800DD1D4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		86535AFB2B35960800DD1D4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		86535AFE2B35960800DD1D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86535AFB2B35960800DD1D4F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		86535B012B35960800DD1D4F /* BrightSky.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrightSky.xcdatamodel; sourceTree = "<group>"; };
 		86535B032B35960900DD1D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86535B062B35960900DD1D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86535B082B35960900DD1D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86535B0E2B359B1B00DD1D4F /* BrightSky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrightSky.entitlements; sourceTree = "<group>"; };
+		86535B152B35A67200DD1D4F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		86535B172B35A68400DD1D4F /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		86535B192B35A69D00DD1D4F /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		86535B1B2B35A87700DD1D4F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		86535B1D2B35A8A700DD1D4F /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +67,69 @@
 		86535AF62B35960800DD1D4F /* BrightSky */ = {
 			isa = PBXGroup;
 			children = (
-				86535AF72B35960800DD1D4F /* AppDelegate.swift */,
-				86535AF92B35960800DD1D4F /* SceneDelegate.swift */,
-				86535AFB2B35960800DD1D4F /* ViewController.swift */,
-				86535AFD2B35960800DD1D4F /* Main.storyboard */,
-				86535B032B35960900DD1D4F /* Assets.xcassets */,
-				86535B052B35960900DD1D4F /* LaunchScreen.storyboard */,
+				86535B142B35A64C00DD1D4F /* Managers */,
+				86535B132B35A61100DD1D4F /* Other */,
+				86535B122B35A60B00DD1D4F /* Controllers */,
+				86535B112B35A60400DD1D4F /* Models */,
+				86535B102B35A5FD00DD1D4F /* ViewModels */,
+				86535B0F2B35A5F700DD1D4F /* Views */,
+				86535B0E2B359B1B00DD1D4F /* BrightSky.entitlements */,
 				86535B082B35960900DD1D4F /* Info.plist */,
 				86535B002B35960800DD1D4F /* BrightSky.xcdatamodeld */,
 			);
 			path = BrightSky;
+			sourceTree = "<group>";
+		};
+		86535B0F2B35A5F700DD1D4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86535B102B35A5FD00DD1D4F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86535B112B35A60400DD1D4F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86535B122B35A60B00DD1D4F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86535AFB2B35960800DD1D4F /* WeatherViewController.swift */,
+				86535B1B2B35A87700DD1D4F /* SettingsViewController.swift */,
+				86535B1D2B35A8A700DD1D4F /* TabViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		86535B132B35A61100DD1D4F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				86535B032B35960900DD1D4F /* Assets.xcassets */,
+				86535B052B35960900DD1D4F /* LaunchScreen.storyboard */,
+				86535AF72B35960800DD1D4F /* AppDelegate.swift */,
+				86535AF92B35960800DD1D4F /* SceneDelegate.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		86535B142B35A64C00DD1D4F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				86535B152B35A67200DD1D4F /* LocationManager.swift */,
+				86535B172B35A68400DD1D4F /* IAPManager.swift */,
+				86535B192B35A69D00DD1D4F /* WeatherManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +192,6 @@
 			files = (
 				86535B072B35960900DD1D4F /* LaunchScreen.storyboard in Resources */,
 				86535B042B35960900DD1D4F /* Assets.xcassets in Resources */,
-				86535AFF2B35960800DD1D4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +202,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86535AFC2B35960800DD1D4F /* ViewController.swift in Sources */,
+				86535B182B35A68400DD1D4F /* IAPManager.swift in Sources */,
+				86535AFC2B35960800DD1D4F /* WeatherViewController.swift in Sources */,
 				86535B022B35960800DD1D4F /* BrightSky.xcdatamodeld in Sources */,
+				86535B1A2B35A69D00DD1D4F /* WeatherManager.swift in Sources */,
+				86535B162B35A67200DD1D4F /* LocationManager.swift in Sources */,
 				86535AF82B35960800DD1D4F /* AppDelegate.swift in Sources */,
+				86535B1E2B35A8A700DD1D4F /* TabViewController.swift in Sources */,
 				86535AFA2B35960800DD1D4F /* SceneDelegate.swift in Sources */,
+				86535B1C2B35A87700DD1D4F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		86535AFD2B35960800DD1D4F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86535AFE2B35960800DD1D4F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		86535B052B35960900DD1D4F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,22 +352,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BrightSky/BrightSky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S84P563ALW;
+				DEVELOPMENT_TEAM = TBAWAVUTF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrightSky/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = razumovpv.BrightSky;
+				PRODUCT_BUNDLE_IDENTIFIER = johnSinmaker.birghtsky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -322,22 +381,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BrightSky/BrightSky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S84P563ALW;
+				DEVELOPMENT_TEAM = TBAWAVUTF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BrightSky/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = razumovpv.BrightSky;
+				PRODUCT_BUNDLE_IDENTIFIER = johnSinmaker.birghtsky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
