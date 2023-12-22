@@ -18,6 +18,8 @@
 		86535B1A2B35A69D00DD1D4F /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B192B35A69D00DD1D4F /* WeatherManager.swift */; };
 		86535B1C2B35A87700DD1D4F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B1B2B35A87700DD1D4F /* SettingsViewController.swift */; };
 		86535B1E2B35A8A700DD1D4F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B1D2B35A8A700DD1D4F /* TabViewController.swift */; };
+		86535B202B35B84D00DD1D4F /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B1F2B35B84D00DD1D4F /* CurrentWeatherView.swift */; };
+		86535B222B35B87700DD1D4F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B212B35B87700DD1D4F /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		86535B192B35A69D00DD1D4F /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		86535B1B2B35A87700DD1D4F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		86535B1D2B35A8A700DD1D4F /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		86535B1F2B35B84D00DD1D4F /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		86535B212B35B87700DD1D4F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 		86535B0F2B35A5F700DD1D4F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86535B1F2B35B84D00DD1D4F /* CurrentWeatherView.swift */,
+				86535B212B35B87700DD1D4F /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,12 +211,14 @@
 				86535B182B35A68400DD1D4F /* IAPManager.swift in Sources */,
 				86535AFC2B35960800DD1D4F /* WeatherViewController.swift in Sources */,
 				86535B022B35960800DD1D4F /* BrightSky.xcdatamodeld in Sources */,
+				86535B202B35B84D00DD1D4F /* CurrentWeatherView.swift in Sources */,
 				86535B1A2B35A69D00DD1D4F /* WeatherManager.swift in Sources */,
 				86535B162B35A67200DD1D4F /* LocationManager.swift in Sources */,
 				86535AF82B35960800DD1D4F /* AppDelegate.swift in Sources */,
 				86535B1E2B35A8A700DD1D4F /* TabViewController.swift in Sources */,
 				86535AFA2B35960800DD1D4F /* SceneDelegate.swift in Sources */,
 				86535B1C2B35A87700DD1D4F /* SettingsViewController.swift in Sources */,
+				86535B222B35B87700DD1D4F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
