@@ -113,7 +113,6 @@ class CurrentWeatherView: UIView {
 extension CurrentWeatherView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("DEBUG: \(viewModel.count)")
         return viewModel.count
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
