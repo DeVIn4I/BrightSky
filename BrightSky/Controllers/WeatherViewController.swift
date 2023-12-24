@@ -16,6 +16,12 @@ class WeatherViewController: UIViewController {
         setUpView()
         getLocation()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "crown"),
+            style: .done,
+            target: self,
+            action: #selector(didTapUpgrade)
+        )
     }
 
     private func getLocation() {
@@ -43,6 +49,11 @@ class WeatherViewController: UIViewController {
             primaryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             primaryView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+    
+    @objc
+    private func didTapUpgrade() {
+        
     }
 }
 
