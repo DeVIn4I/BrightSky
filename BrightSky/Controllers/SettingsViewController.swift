@@ -8,12 +8,21 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
-    private let primaryView = SettingsView()
+        
+    private let primaryView: SettingsView = {
+        let view = SettingsView()
+        let viewModel = SettingsViewViewModel(option: SettingOption.allCases)
+        view.configure(with: viewModel)
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        primaryView.delegate = self
+        setUpView()
+    }
+ 
+    private func setUpView() {
         view.backgroundColor = .systemBackground
         view.addSubview(primaryView)
         
@@ -24,5 +33,25 @@ class SettingsViewController: UIViewController {
             primaryView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
- 
+}
+
+extension SettingsViewController: SettingsViewDelegate {
+    func settingsView(_ settingsView: SettingsView, didTap option: SettingOption) {
+        switch option {
+        case .upgrade:
+            break
+        case .privacyPolicy:
+            break
+        case .terms:
+            break
+        case .contact:
+            break
+        case .getHelp:
+            break
+        case .rateApp:
+            break
+        }
+    }
+    
+    
 }
