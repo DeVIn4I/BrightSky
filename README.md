@@ -1,4 +1,4 @@
 Test
 
-<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/test.gif" width="300" height="600">
-<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/test.gif" width="300" height="600">
+<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/test.gif" width="300" height="800">
+
