@@ -32,11 +32,13 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    
+ 
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.layer.cornerRadius = 8
-        contentView.backgroundColor = .tertiarySystemBackground
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.secondaryLabel.cgColor
+        contentView.backgroundColor = .secondarySystemBackground
         
         contentView.addSubview(timeLabel)
         contentView.addSubview(icon)

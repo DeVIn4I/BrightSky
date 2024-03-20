@@ -31,21 +31,21 @@ struct DailyWeatherCollectionViewCellViewModel {
     private func string(from day: Int) -> String {
         switch day {
         case 1:
-            return "Monday"
+            return "Понедельник"
         case 2:
-            return "Tuesday"
+            return "Вторник"
         case 3:
-            return "Wednesday"
+            return "Среда"
         case 4:
-            return "Thursday"
+            return "Четверг"
         case 5:
-            return "Friday"
+            return "Пятница"
         case 6:
-            return "Saturday"
+            return "Суббота"
         case 7:
-            return "Sunday"
+            return "Воскресенье"
         default:
-            return "_"
+            return "Неизвестно"
         }
     }
 }

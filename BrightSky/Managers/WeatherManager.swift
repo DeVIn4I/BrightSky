@@ -19,20 +19,23 @@ final class WeatherManager {
     
     public private(set) var currentWeather: CurrentWeather?
     public private(set) var hourlyWeather: [HourWeather] = []
-    public private(set) var dailytWeather: [DayWeather] = []
+    public private(set) var dailyWeather: [DayWeather] = []
+    public private(set) var cityName: String?
     
     public func getWeather(for location: CLLocation, completion: @escaping () -> Void) {
         Task {
             do {
                 let result = try await service.weather(for: location)
-                
-//                print("Current: \(result.currentWeather)")
-//                print("Hourly: \(result.hourlyForecast)")
-//                print("Daily: \(result.dailyForecast)")
-                
+
                 self.currentWeather = result.currentWeather
-                self.hourlyWeather = result.hourlyForecast.forecast
-                self.dailytWeather = result.dailyForecast.forecast
+                self.hourlyWeather = Array(result.hourlyForecast.forecast.prefix(24))
+                self.dailyWeather = Array(result.dailyForecast.forecast.prefix(7))
+                
+                let geocoder = CLGeocoder()
+                let placemarks = try await geocoder.reverseGeocodeLocation(location)
+                if let place = placemarks.first, let city = place.locality {
+                    self.cityName = city
+                }
                 
                 completion()
             } catch {
@@ -40,5 +43,20 @@ final class WeatherManager {
             }
         }
         
+    }
+}
+
+extension WeatherManager {
+    
+    // Добавьте этот метод в класс WeatherManager
+    public func getWeather(forCity cityName: String, completion: @escaping () -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(cityName) { [weak self] placemarks, error in
+            guard let self = self, let location = placemarks?.first?.location else {
+                print("Ошибка геокодирования: \(String(describing: error))")
+                return
+            }
+            self.getWeather(for: location, completion: completion)
+        }
     }
 }
