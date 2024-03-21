@@ -9,43 +9,41 @@ import Foundation
 import WeatherKit
 
 struct DailyWeatherCollectionViewCellViewModel {
+    
     private let model: DayWeather
-    
-    init(model: DayWeather) {
-        self.model = model
-    }
-    
+
     public var iconName: String {
         return model.symbolName
     }
-    
     public var temperature: String {
         return "\(model.lowTemperature) - \(model.highTemperature)"
     }
-    
     public var date: String {
         let day = Calendar.current.component(.weekday, from: model.date)
         return string(from: day)
     }
-    
     private func string(from day: Int) -> String {
         switch day {
         case 1:
-            return "Monday"
+            return "Понедельник"
         case 2:
-            return "Tuesday"
+            return "Вторник"
         case 3:
-            return "Wednesday"
+            return "Среда"
         case 4:
-            return "Thursday"
+            return "Четверг"
         case 5:
-            return "Friday"
+            return "Пятница"
         case 6:
-            return "Saturday"
+            return "Суббота"
         case 7:
-            return "Sunday"
+            return "Воскресенье"
         default:
-            return "_"
+            return "Неизвестно"
         }
+    }
+    
+    init(model: DayWeather) {
+        self.model = model
     }
 }

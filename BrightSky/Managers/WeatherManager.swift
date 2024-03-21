@@ -5,40 +5,61 @@
 //  Created by Razumov Pavel on 22.12.2023.
 //
 
-import Foundation
+import UIKit
 import WeatherKit
 import CoreLocation
+
+enum WeatherError: Error {
+    case locationError
+    case weatherDataError
+    case cityNotFound
+}
 
 final class WeatherManager {
     static let shared = WeatherManager()
     
     let service = WeatherService.shared
     
-    
     private init() {}
     
+    //MARK: - Properties
     public private(set) var currentWeather: CurrentWeather?
     public private(set) var hourlyWeather: [HourWeather] = []
-    public private(set) var dailytWeather: [DayWeather] = []
+    public private(set) var dailyWeather: [DayWeather] = []
+    public private(set) var cityName: String?
     
-    public func getWeather(for location: CLLocation, completion: @escaping () -> Void) {
+     //MARK: - Methods
+    public func getWeather(for location: CLLocation, completion: @escaping (Result<Void, WeatherError>) -> Void) {
         Task {
             do {
                 let result = try await service.weather(for: location)
-                
-//                print("Current: \(result.currentWeather)")
-//                print("Hourly: \(result.hourlyForecast)")
-//                print("Daily: \(result.dailyForecast)")
-                
                 self.currentWeather = result.currentWeather
-                self.hourlyWeather = result.hourlyForecast.forecast
-                self.dailytWeather = result.dailyForecast.forecast
+                self.hourlyWeather = Array(result.hourlyForecast.forecast.prefix(24))
+                self.dailyWeather = Array(result.dailyForecast.forecast.prefix(7))
                 
-                completion()
+                let geoCoder = CLGeocoder()
+                let placeMarks = try await geoCoder.reverseGeocodeLocation(location)
+                if let place = placeMarks.first, let city = place.locality {
+                    self.cityName = city
+                }
+                completion(.success(()))
             } catch {
-                print(String(describing: error))
+                completion(.failure(.weatherDataError))
             }
         }
-        
+    }
+    
+    public func getWeather(forCity cityName: String, completion: @escaping (Result<Void, WeatherError>) -> Void) {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(cityName) { [weak self] placeMarks, error in
+            guard let self = self,
+                  let location = placeMarks?.first?.location
+            else {
+                completion(.failure(.cityNotFound))
+                return
+            }
+            self.getWeather(for: location, completion: completion)
+        }
     }
 }
+

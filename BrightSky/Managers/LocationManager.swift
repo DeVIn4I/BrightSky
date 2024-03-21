@@ -12,6 +12,8 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     static let shared = LocationManager()
     
+    private override init() {}
+     //MARK: - Private Properties
     private let manager = CLLocationManager()
     private var locationFetchCompletion: ((CLLocation) -> Void)?
     private var location: CLLocation? {
@@ -20,7 +22,7 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
             locationFetchCompletion?(location)
         }
     }
-    
+     //MARK: - Public Methods
     public func getCurrentLocation(completion: @escaping (CLLocation) -> Void) {
         self.locationFetchCompletion = completion
         manager.requestWhenInUseAuthorization()
@@ -28,10 +30,10 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         manager.startUpdatingLocation()
     }
     
-    // MARK: - Location
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
         self.location = location
         manager.stopUpdatingLocation()
     }
 }
+

@@ -7,41 +7,21 @@
 
 import UIKit
 
-class HourlyWeatherCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "HourlyWeatherCollectionViewCell"
+final class HourlyWeatherCollectionViewCell: UICollectionViewCell {
+     //MARK: - Private Properties
+    private let tempLabel = UILabel(font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .center)
+    private let timeLabel = UILabel(font: .systemFont(ofSize: 15, weight: .regular), textAlignment: .center)
+    private let icon = UIImageView(contentMode: .scaleAspectFit)
     
-    private let tempLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        return label
-    }()
-    
-    private let timeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 15, weight: .regular)
-        return label
-    }()
-    
-    private let icon: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
+     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        [timeLabel, icon, tempLabel].forEach(contentView.addSubview(_:))
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.secondaryLabel.cgColor
         contentView.backgroundColor = .secondarySystemBackground
-        contentView.addSubview(timeLabel)
-        contentView.addSubview(icon)
-        contentView.addSubview(tempLabel)
         
         addConstraints()
     }
@@ -56,7 +36,7 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
         tempLabel.text = nil
         timeLabel.text = nil
     }
-    
+     //MARK: - Private Methods
     private func addConstraints() {
         NSLayoutConstraint.activate([
             timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -65,9 +45,7 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
             timeLabel.heightAnchor.constraint(equalToConstant: 40),
             
             icon.topAnchor.constraint(equalTo: timeLabel.bottomAnchor),
-            icon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            icon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            icon.heightAnchor.constraint(equalToConstant: 30),
+            icon.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             tempLabel.topAnchor.constraint(equalTo: icon.bottomAnchor),
             tempLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -75,7 +53,7 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
             tempLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
-    
+     //MARK: - Public Methods
     public func configure(with viewModel: HourlyWeatherCollectionViewCellViewModel) {
         icon.image = UIImage(systemName: viewModel.iconName)
         tempLabel.text = viewModel.temperature

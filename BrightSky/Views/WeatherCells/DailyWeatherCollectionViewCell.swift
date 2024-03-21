@@ -7,9 +7,8 @@
 
 import UIKit
 
-class DailyWeatherCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "DailyWeatherCollectionViewCell"
-    
+final class DailyWeatherCollectionViewCell: UICollectionViewCell {
+     //MARK: - Private Methods
     private let tempLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,31 +16,20 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
-    
-    private let timeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 22, weight: .medium)
-        return label
-    }()
-    
-    private let icon: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
+
+    private let timeLabel = UILabel(font: .systemFont(ofSize: 22, weight: .medium), textAlignment: .center)
+    private let icon = UIImageView(contentMode: .scaleAspectFit)
+ 
+     //MARK: - Lyfecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        [timeLabel, icon, tempLabel].forEach(contentView.addSubview(_:))
         contentView.layer.cornerRadius = 8
-        contentView.backgroundColor = .tertiarySystemBackground
-        
-        contentView.addSubview(timeLabel)
-        contentView.addSubview(icon)
-        contentView.addSubview(tempLabel)
-        
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.secondaryLabel.cgColor
+        contentView.backgroundColor = .secondarySystemBackground
+
         addConstraints()
     }
     
@@ -56,6 +44,7 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
         timeLabel.text = nil
     }
     
+     //MARK: - Private Methods
     private func addConstraints() {
         NSLayoutConstraint.activate([
             timeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -71,7 +60,7 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
             tempLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
     }
-    
+     //MARK: - Public Methods
     public func configure(with viewModel: DailyWeatherCollectionViewCellViewModel) {
         icon.image = UIImage(systemName: viewModel.iconName)
         tempLabel.text = viewModel.temperature
