@@ -7,9 +7,8 @@
 
 import UIKit
 
-class CurrentWeatherCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "CurrentWeatherCollectionViewCell"
-
+final class CurrentWeatherCollectionViewCell: UICollectionViewCell {
+     //MARK: - Private Properties
     private let cityLabel = UILabel(
         font: .systemFont(ofSize: 36, weight: .bold)
         ,textAlignment: .center
@@ -46,24 +45,19 @@ class CurrentWeatherCollectionViewCell: UICollectionViewCell {
     private let humidityStackView = UIStackView(axis: .vertical, alignment: .center, spacing: 8)
     private let overallStackView = UIStackView(axis: .horizontal, distribution: .fillEqually, spacing: 4)
     
+     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         setupViews()
         addConstraints()
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        conditionLabel.text = nil
-        tempLabel.text = nil
-        icon.image = nil
-    }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
     
+     //MARK: - Private Methods
     private func setupViews() {
         [cityLabel, tempLabel, conditionStackView, overallStackView].forEach(contentView.addSubview(_:))
         [icon, conditionLabel].forEach(conditionStackView.addArrangedSubview(_:))
@@ -94,7 +88,7 @@ class CurrentWeatherCollectionViewCell: UICollectionViewCell {
             overallStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10)
         ])
     }
-    
+     //MARK: - Public Methods
     public func configure(with viewModel: CurrentWeatherCollectionViewCellViewModel) {
         icon.image = UIImage(systemName: viewModel.iconName)
         conditionLabel.text = viewModel.conditionRussian

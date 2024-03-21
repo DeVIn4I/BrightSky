@@ -8,14 +8,14 @@
 import UIKit
 
 class CurrentWeatherView: UIView {
-    
-    var viewModel: [WeatherViewModel] = []
+     //MARK: - Properties
     private var collectionView: UICollectionView?
+    var viewModel: [WeatherViewModel] = []
     
+     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        
         createCollectionView()
     }
     
@@ -23,11 +23,7 @@ class CurrentWeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with viewModel: [WeatherViewModel]) {
-        self.viewModel = viewModel
-        collectionView?.reloadData()
-    }
-    
+     //MARK: - Private Methods
     private func createCollectionView() {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             return self.layout(for: sectionIndex)
@@ -37,16 +33,15 @@ class CurrentWeatherView: UIView {
         
         collectionView.dataSource = self
         collectionView.register(CurrentWeatherCollectionViewCell.self,
-                                forCellWithReuseIdentifier: CurrentWeatherCollectionViewCell.cellIdentifier
+                                forCellWithReuseIdentifier: CurrentWeatherCollectionViewCell.reuseId
         )
         collectionView.register(HourlyWeatherCollectionViewCell.self,
-                                forCellWithReuseIdentifier: HourlyWeatherCollectionViewCell.cellIdentifier
+                                forCellWithReuseIdentifier: HourlyWeatherCollectionViewCell.reuseId
         )
         collectionView.register(DailyWeatherCollectionViewCell.self,
-                                forCellWithReuseIdentifier: DailyWeatherCollectionViewCell.cellIdentifier
+                                forCellWithReuseIdentifier: DailyWeatherCollectionViewCell.reuseId
         )
         addSubview(collectionView)
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -64,21 +59,18 @@ class CurrentWeatherView: UIView {
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0)
             ))
-            
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(1.0),
                     heightDimension: .fractionalWidth(0.75)),
                 subitems: [item]
             )
-            
             return NSCollectionLayoutSection(group: group)
         case .hourly:
             let item = NSCollectionLayoutItem(layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0)
             ))
-            
             let group = NSCollectionLayoutGroup.horizontal(
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(0.25),
@@ -86,7 +78,6 @@ class CurrentWeatherView: UIView {
                 subitems: [item]
             )
             group.contentInsets = .init(top: 1, leading: 2, bottom: 1, trailing: 2)
-            
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
             return section
@@ -95,7 +86,6 @@ class CurrentWeatherView: UIView {
                 widthDimension: .fractionalWidth(1.0),
                 heightDimension: .fractionalHeight(1.0)
             ))
-            
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: .init(
                     widthDimension: .fractionalWidth(1.0),
@@ -103,18 +93,24 @@ class CurrentWeatherView: UIView {
                 subitems: [item]
             )
             group.contentInsets = .init(top: 2, leading: 2, bottom: 2, trailing: 2)
-
-            
             return NSCollectionLayoutSection(group: group)
         }
     }
+    
+     //MARK: - Public Methods
+    public func configure(with viewModel: [WeatherViewModel]) {
+        self.viewModel = viewModel
+        collectionView?.reloadData()
+    }
 }
 
+ //MARK: - CurrentWeatherView: UICollectionViewDataSource
 extension CurrentWeatherView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch viewModel[section] {
         case .current:
@@ -127,11 +123,10 @@ extension CurrentWeatherView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch viewModel[indexPath.section] {
         case .current(let viewModel):
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CurrentWeatherCollectionViewCell.cellIdentifier,
+                withReuseIdentifier: CurrentWeatherCollectionViewCell.reuseId,
                 for: indexPath
             ) as? CurrentWeatherCollectionViewCell else {
                 fatalError()
@@ -140,7 +135,7 @@ extension CurrentWeatherView: UICollectionViewDataSource {
             return cell
         case .hourly(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: HourlyWeatherCollectionViewCell.cellIdentifier,
+                withReuseIdentifier: HourlyWeatherCollectionViewCell.reuseId,
                 for: indexPath
             ) as? HourlyWeatherCollectionViewCell else {
                 fatalError()
@@ -149,7 +144,7 @@ extension CurrentWeatherView: UICollectionViewDataSource {
             return cell
         case .daily(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: DailyWeatherCollectionViewCell.cellIdentifier,
+                withReuseIdentifier: DailyWeatherCollectionViewCell.reuseId,
                 for: indexPath
             ) as? DailyWeatherCollectionViewCell else {
                 fatalError()

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class HourlyWeatherCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "HourlyWeatherCollectionViewCell"
-    
+final class HourlyWeatherCollectionViewCell: UICollectionViewCell {
+     //MARK: - Private Properties
     private let tempLabel = UILabel(font: .systemFont(ofSize: 18, weight: .regular), textAlignment: .center)
     private let timeLabel = UILabel(font: .systemFont(ofSize: 15, weight: .regular), textAlignment: .center)
     private let icon = UIImageView(contentMode: .scaleAspectFit)
     
+     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -29,7 +29,14 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        icon.image = nil
+        tempLabel.text = nil
+        timeLabel.text = nil
+    }
+     //MARK: - Private Methods
     private func addConstraints() {
         NSLayoutConstraint.activate([
             timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -46,7 +53,7 @@ class HourlyWeatherCollectionViewCell: UICollectionViewCell {
             tempLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
-    
+     //MARK: - Public Methods
     public func configure(with viewModel: HourlyWeatherCollectionViewCellViewModel) {
         icon.image = UIImage(systemName: viewModel.iconName)
         tempLabel.text = viewModel.temperature

@@ -7,9 +7,8 @@
 
 import UIKit
 
-class DailyWeatherCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "DailyWeatherCollectionViewCell"
-    
+final class DailyWeatherCollectionViewCell: UICollectionViewCell {
+     //MARK: - Private Methods
     private let tempLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +20,7 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
     private let timeLabel = UILabel(font: .systemFont(ofSize: 22, weight: .medium), textAlignment: .center)
     private let icon = UIImageView(contentMode: .scaleAspectFit)
  
+     //MARK: - Lyfecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -36,7 +36,15 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        icon.image = nil
+        tempLabel.text = nil
+        timeLabel.text = nil
+    }
+    
+     //MARK: - Private Methods
     private func addConstraints() {
         NSLayoutConstraint.activate([
             timeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -52,7 +60,7 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
             tempLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
     }
-    
+     //MARK: - Public Methods
     public func configure(with viewModel: DailyWeatherCollectionViewCellViewModel) {
         icon.image = UIImage(systemName: viewModel.iconName)
         tempLabel.text = viewModel.temperature

@@ -17,7 +17,7 @@ struct AlertModel {
         title: String? = nil,
         message: String? = nil,
         style: UIAlertController.Style = .alert,
-        actions: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default)]
+        actions: [UIAlertAction] = [UIAlertAction(title: "OK", style: .default)]
     ) {
         self.title = title
         self.message = message

@@ -9,7 +9,11 @@ import UIKit
 
 extension UIViewController {
     func showAlert(using model: AlertModel) {
-        let alertController = UIAlertController(title: model.title, message: model.message, preferredStyle: model.style)
+        let alertController = UIAlertController(
+            title: model.title,
+            message: model.message,
+            preferredStyle: model.style
+        )
         model.actions.forEach { action in
             alertController.addAction(action)
         }
