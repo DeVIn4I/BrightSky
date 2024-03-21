@@ -5,7 +5,7 @@
 //  Created by Razumov Pavel on 22.12.2023.
 //
 
-import Foundation
+import UIKit
 import WeatherKit
 import CoreLocation
 
@@ -13,7 +13,6 @@ final class WeatherManager {
     static let shared = WeatherManager()
     
     let service = WeatherService.shared
-    
     
     private init() {}
     
@@ -26,7 +25,7 @@ final class WeatherManager {
         Task {
             do {
                 let result = try await service.weather(for: location)
-
+                
                 self.currentWeather = result.currentWeather
                 self.hourlyWeather = Array(result.hourlyForecast.forecast.prefix(24))
                 self.dailyWeather = Array(result.dailyForecast.forecast.prefix(7))
@@ -36,24 +35,24 @@ final class WeatherManager {
                 if let place = placemarks.first, let city = place.locality {
                     self.cityName = city
                 }
-                
                 completion()
             } catch {
                 print(String(describing: error))
             }
         }
-        
     }
 }
 
 extension WeatherManager {
-    
-    // Добавьте этот метод в класс WeatherManager
     public func getWeather(forCity cityName: String, completion: @escaping () -> Void) {
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(cityName) { [weak self] placemarks, error in
-            guard let self = self, let location = placemarks?.first?.location else {
-                print("Ошибка геокодирования: \(String(describing: error))")
+        geocoder.geocodeAddressString(cityName) {
+            [weak self] placemarks,
+            error in
+            guard let self = self,
+                  let location = placemarks?.first?.location
+            else {
+                print("⭕️Ошибка геокодирования: \(String(describing: error))")
                 return
             }
             self.getWeather(for: location, completion: completion)

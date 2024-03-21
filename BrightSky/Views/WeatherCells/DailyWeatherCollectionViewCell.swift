@@ -17,47 +17,26 @@ class DailyWeatherCollectionViewCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
-    
-    private let timeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 22, weight: .medium)
-        return label
-    }()
-    
-    private let icon: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
+
+    private let timeLabel = UILabel(font: .systemFont(ofSize: 22, weight: .medium), textAlignment: .center)
+    private let icon = UIImageView(contentMode: .scaleAspectFit)
  
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        [timeLabel, icon, tempLabel].forEach(contentView.addSubview(_:))
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = UIColor.secondaryLabel.cgColor
         contentView.backgroundColor = .secondarySystemBackground
-        
-        contentView.addSubview(timeLabel)
-        contentView.addSubview(icon)
-        contentView.addSubview(tempLabel)
-        
+
         addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        icon.image = nil
-        tempLabel.text = nil
-        timeLabel.text = nil
-    }
-    
+
     private func addConstraints() {
         NSLayoutConstraint.activate([
             timeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

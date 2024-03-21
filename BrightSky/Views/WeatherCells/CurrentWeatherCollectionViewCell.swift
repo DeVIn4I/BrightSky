@@ -9,116 +9,48 @@ import UIKit
 
 class CurrentWeatherCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "CurrentWeatherCollectionViewCell"
-    
-    private let cityLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 36, weight: .bold)
-        label.text = "Moscow"
-        return label
-    }()
-    
-    private let tempLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 40, weight: .medium)
-        return label
-    }()
-    
-    private let conditionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 26, weight: .regular)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private let icon: UIImageView = {
-        let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
-    private let conditionStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 4
-        stackView.alignment = .center
-        return stackView
-    }()
-    
-    private let precipitationIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "cloud.rain")
-        return imageView
-    }()
 
-    private let windSpeedIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "wind")
-        return imageView
-    }()
-
-    private let humidityIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "humidity")
-        return imageView
-    }()
-
-    private let precipitationLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
-
-    private let windSpeedLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
-
-    private let humidityLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textAlignment = .center
-        return label
-    }()
-
-    
+    private let cityLabel = UILabel(
+        font: .systemFont(ofSize: 36, weight: .bold)
+        ,textAlignment: .center
+    )
+    private let tempLabel = UILabel(
+        font: .systemFont(ofSize: 40, weight: .medium),
+        textAlignment: .center
+    )
+    private let conditionLabel = UILabel(font: .systemFont(ofSize: 26, weight: .regular))
+    private let icon = UIImageView(height: 42, width: 42)
+    private let conditionStackView = UIStackView(
+        axis: .vertical,
+        alignment: .center,
+        distribution: .fillEqually,
+        spacing: 4
+    )
+    private let precipitationIcon = UIImageView(imageName: "cloud.rain")
+    private let windSpeedIcon = UIImageView(imageName: "wind")
+    private let humidityIcon = UIImageView(imageName: "humidity")
+    private let precipitationLabel = UILabel(
+        font: .systemFont(ofSize: 18, weight: .regular),
+        textAlignment: .center
+    )
+    private let windSpeedLabel = UILabel(
+        font: .systemFont(ofSize: 18, weight: .regular),
+        textAlignment: .center
+    )
+    private let humidityLabel = UILabel(
+        font: .systemFont(ofSize: 18, weight: .regular),
+        textAlignment: .center
+    )
+    private let precipitationStackView = UIStackView(axis: .vertical, alignment: .center, spacing: 8)
+    private let windSpeedStackView = UIStackView(axis: .vertical, alignment: .center, spacing: 8)
+    private let humidityStackView = UIStackView(axis: .vertical, alignment: .center, spacing: 8)
+    private let overallStackView = UIStackView(axis: .horizontal, distribution: .fillEqually, spacing: 4)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        contentView.addSubview(cityLabel)
-        contentView.addSubview(tempLabel)
 
-        [icon, conditionLabel].forEach { conditionStackView.addArrangedSubview($0)}
-
-        contentView.addSubview(conditionStackView)
-
-        
+        setupViews()
         addConstraints()
-        
-        setupWeatherInfoStackView()
-        
-        [precipitationIcon, windSpeedIcon, humidityIcon].forEach { icon in
-               icon.translatesAutoresizingMaskIntoConstraints = false
-               NSLayoutConstraint.activate([
-                   icon.widthAnchor.constraint(equalToConstant: 30),
-                   icon.heightAnchor.constraint(equalToConstant: 30)
-               ])
-           }
     }
     
     override func prepareForReuse() {
@@ -132,39 +64,14 @@ class CurrentWeatherCollectionViewCell: UICollectionViewCell {
         fatalError()
     }
     
-    private func setupWeatherInfoStackView() {
-        let precipitationStackView = UIStackView(arrangedSubviews: [precipitationIcon, precipitationLabel])
-        precipitationStackView.axis = .vertical
-        precipitationStackView.alignment = .center
-        precipitationStackView.spacing = 8
-
-        let windSpeedStackView = UIStackView(arrangedSubviews: [windSpeedIcon, windSpeedLabel])
-        windSpeedStackView.axis = .vertical
-        windSpeedStackView.spacing = 8
-        windSpeedStackView.alignment = .center
-
-        let humidityStackView = UIStackView(arrangedSubviews: [humidityIcon, humidityLabel])
-        humidityStackView.axis = .vertical
-        humidityStackView.spacing = 8
-        humidityStackView.alignment = .center
-
-        let overallStackView = UIStackView(arrangedSubviews: [precipitationStackView, windSpeedStackView, humidityStackView])
-        overallStackView.axis = .horizontal
-        overallStackView.distribution = .fillEqually
-        overallStackView.spacing = 4
-        overallStackView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(overallStackView)
-
-        NSLayoutConstraint.activate([
-            overallStackView.topAnchor.constraint(equalTo: conditionStackView.bottomAnchor, constant: 10),
-            overallStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            overallStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            overallStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10),
-            
-            
-        ])
+    private func setupViews() {
+        [cityLabel, tempLabel, conditionStackView, overallStackView].forEach(contentView.addSubview(_:))
+        [icon, conditionLabel].forEach(conditionStackView.addArrangedSubview(_:))
+        [precipitationIcon, precipitationLabel].forEach(precipitationStackView.addArrangedSubview(_:))
+        [windSpeedIcon, windSpeedLabel].forEach(windSpeedStackView.addArrangedSubview(_:))
+        [humidityIcon, humidityLabel].forEach(humidityStackView.addArrangedSubview(_:))
+        [precipitationStackView, windSpeedStackView, humidityStackView].forEach(overallStackView.addArrangedSubview(_:))
     }
-
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -180,9 +87,11 @@ class CurrentWeatherCollectionViewCell: UICollectionViewCell {
             conditionStackView.topAnchor.constraint(equalTo: tempLabel.bottomAnchor, constant: 12),
             conditionStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             conditionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            icon.heightAnchor.constraint(equalToConstant: 36),
-            icon.widthAnchor.constraint(equalToConstant: 36),
             
+            overallStackView.topAnchor.constraint(equalTo: conditionStackView.bottomAnchor, constant: 10),
+            overallStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            overallStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            overallStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     

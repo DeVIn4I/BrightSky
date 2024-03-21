@@ -10,7 +10,6 @@
 		86535AF82B35960800DD1D4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AF72B35960800DD1D4F /* AppDelegate.swift */; };
 		86535AFA2B35960800DD1D4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AF92B35960800DD1D4F /* SceneDelegate.swift */; };
 		86535AFC2B35960800DD1D4F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535AFB2B35960800DD1D4F /* WeatherViewController.swift */; };
-		86535B022B35960800DD1D4F /* BrightSky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86535B002B35960800DD1D4F /* BrightSky.xcdatamodeld */; };
 		86535B042B35960900DD1D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86535B032B35960900DD1D4F /* Assets.xcassets */; };
 		86535B072B35960900DD1D4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86535B052B35960900DD1D4F /* LaunchScreen.storyboard */; };
 		86535B162B35A67200DD1D4F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86535B152B35A67200DD1D4F /* LocationManager.swift */; };
@@ -24,6 +23,11 @@
 		866FEED32B383B5E0066981F /* CurrentWeatherCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FEED22B383B5E0066981F /* CurrentWeatherCollectionViewCellViewModel.swift */; };
 		866FEED52B383B9E0066981F /* HourlyWeatherCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FEED42B383B9E0066981F /* HourlyWeatherCollectionViewCellViewModel.swift */; };
 		866FEED72B383BCB0066981F /* DailyWeatherCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866FEED62B383BCB0066981F /* DailyWeatherCollectionViewCellViewModel.swift */; };
+		86EA86E42BAC323200FA1365 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA86E32BAC323200FA1365 /* UILabel+Extension.swift */; };
+		86EA86E62BAC33CC00FA1365 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA86E52BAC33CC00FA1365 /* UIStackView+Extension.swift */; };
+		86EA86E82BAC3A7500FA1365 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA86E72BAC3A7500FA1365 /* UIImageView+Extension.swift */; };
+		86EA86EB2BAC57F900FA1365 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA86EA2BAC57F900FA1365 /* AlertModel.swift */; };
+		86EA86ED2BAC58AD00FA1365 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EA86EC2BAC58AD00FA1365 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,6 @@
 		86535AF72B35960800DD1D4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86535AF92B35960800DD1D4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		86535AFB2B35960800DD1D4F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		86535B012B35960800DD1D4F /* BrightSky.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BrightSky.xcdatamodel; sourceTree = "<group>"; };
 		86535B032B35960900DD1D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86535B062B35960900DD1D4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86535B082B35960900DD1D4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,11 @@
 		866FEED22B383B5E0066981F /* CurrentWeatherCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		866FEED42B383B9E0066981F /* HourlyWeatherCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		866FEED62B383BCB0066981F /* DailyWeatherCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		86EA86E32BAC323200FA1365 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		86EA86E52BAC33CC00FA1365 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		86EA86E72BAC3A7500FA1365 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		86EA86EA2BAC57F900FA1365 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		86EA86EC2BAC58AD00FA1365 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,15 +87,15 @@
 		86535AF62B35960800DD1D4F /* BrightSky */ = {
 			isa = PBXGroup;
 			children = (
+				86EA86E92BAC57E200FA1365 /* Models */,
+				86EA86E22BAC320F00FA1365 /* Extensions */,
 				86535B142B35A64C00DD1D4F /* Managers */,
 				86535B132B35A61100DD1D4F /* Other */,
 				86535B122B35A60B00DD1D4F /* Controllers */,
-				86535B112B35A60400DD1D4F /* Models */,
 				86535B102B35A5FD00DD1D4F /* ViewModels */,
 				86535B0F2B35A5F700DD1D4F /* Views */,
 				86535B0E2B359B1B00DD1D4F /* BrightSky.entitlements */,
 				86535B082B35960900DD1D4F /* Info.plist */,
-				86535B002B35960800DD1D4F /* BrightSky.xcdatamodeld */,
 			);
 			path = BrightSky;
 			sourceTree = "<group>";
@@ -111,13 +119,6 @@
 				866FEED62B383BCB0066981F /* DailyWeatherCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		86535B112B35A60400DD1D4F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		86535B122B35A60B00DD1D4F /* Controllers */ = {
@@ -156,6 +157,25 @@
 				866FEEC42B381D9C0066981F /* DailyWeatherCollectionViewCell.swift */,
 			);
 			path = WeatherCells;
+			sourceTree = "<group>";
+		};
+		86EA86E22BAC320F00FA1365 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				86EA86E32BAC323200FA1365 /* UILabel+Extension.swift */,
+				86EA86E52BAC33CC00FA1365 /* UIStackView+Extension.swift */,
+				86EA86E72BAC3A7500FA1365 /* UIImageView+Extension.swift */,
+				86EA86EC2BAC58AD00FA1365 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		86EA86E92BAC57E200FA1365 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86EA86EA2BAC57F900FA1365 /* AlertModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,16 +252,20 @@
 				866FEED72B383BCB0066981F /* DailyWeatherCollectionViewCellViewModel.swift in Sources */,
 				86535AFC2B35960800DD1D4F /* WeatherViewController.swift in Sources */,
 				866FEEC02B360D220066981F /* CurrentWeatherSection.swift in Sources */,
-				86535B022B35960800DD1D4F /* BrightSky.xcdatamodeld in Sources */,
 				86535B202B35B84D00DD1D4F /* CurrentWeatherView.swift in Sources */,
 				86535B1A2B35A69D00DD1D4F /* WeatherManager.swift in Sources */,
+				86EA86E42BAC323200FA1365 /* UILabel+Extension.swift in Sources */,
 				86535B162B35A67200DD1D4F /* LocationManager.swift in Sources */,
+				86EA86ED2BAC58AD00FA1365 /* UIViewController+Extension.swift in Sources */,
 				86535AF82B35960800DD1D4F /* AppDelegate.swift in Sources */,
 				866FEED12B383B080066981F /* CurrentWeatherViewModel.swift in Sources */,
 				866FEEC72B381DAC0066981F /* HourlyWeatherCollectionViewCell.swift in Sources */,
 				866FEED32B383B5E0066981F /* CurrentWeatherCollectionViewCellViewModel.swift in Sources */,
 				86535AFA2B35960800DD1D4F /* SceneDelegate.swift in Sources */,
+				86EA86E62BAC33CC00FA1365 /* UIStackView+Extension.swift in Sources */,
 				866FEEC52B381D9C0066981F /* DailyWeatherCollectionViewCell.swift in Sources */,
+				86EA86E82BAC3A7500FA1365 /* UIImageView+Extension.swift in Sources */,
+				86EA86EB2BAC57F900FA1365 /* AlertModel.swift in Sources */,
 				866FEEC32B381D410066981F /* CurrentWeatherCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,19 +493,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		86535B002B35960800DD1D4F /* BrightSky.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				86535B012B35960800DD1D4F /* BrightSky.xcdatamodel */,
-			);
-			currentVersion = 86535B012B35960800DD1D4F /* BrightSky.xcdatamodel */;
-			path = BrightSky.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 86535AEC2B35960800DD1D4F /* Project object */;
 }
