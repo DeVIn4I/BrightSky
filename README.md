@@ -1,8 +1,8 @@
 # BrightSky
 
 <p float="center">
-<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/Screen1.gif" width="220" height="450">
-<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/Screen2.gif" width="220" height="450">
+<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/screen1.gif" width="220" height="450">
+<img src="https://github.com/DeVIn4I/BrightSky/blob/main/Assets/screen2.gif" width="220" height="450">
 </p>
 
 ---
